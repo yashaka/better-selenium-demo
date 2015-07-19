@@ -2,6 +2,7 @@ package com.tasj.simpler;
 
 import com.google.common.base.Function;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -49,5 +50,9 @@ public abstract class ConciseAPI {
 
     protected <V> V assertThat(Function<? super WebDriver, V> condition){
         return waitUntil(condition, Configuration.timeout);
+    }
+
+    protected void refresh(){
+        $("body").sendKeys(Keys.F5);
     }
 }

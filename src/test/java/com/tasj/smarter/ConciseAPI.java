@@ -264,4 +264,8 @@ public abstract class ConciseAPI {
     protected <V> V assertThat(Function<? super WebDriver, V> condition){
         return waitUntil(condition, Configuration.timeout);
     }
+
+    protected void refresh(){
+        $("body").sendKeys(Keys.F5);
+    }
 }

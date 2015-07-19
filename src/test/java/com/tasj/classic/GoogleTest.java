@@ -17,10 +17,9 @@ public class GoogleTest extends BaseTest {
 
     @Test
     public void testGoogleSearch(){
-
         page.visit();
         page.search("Selenium");
-        assertThat(listNthElementHasText(page.results, 9, "Detailed instructions for Windows users"));
+        assertThat(listNthElementHasText(page.results, 0, "Then you want to use Selenium WebDriver"));
     }
 
 }

@@ -1,5 +1,6 @@
 package com.tasj.simpler;
 
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -27,7 +28,7 @@ public class GoogleTest extends BaseTest {
         page.visit();
         page.search("Selenium");
 
-        assertThat(listNthElementHasText(page.results, 9, "Detailed instructions for Windows users"));
+        assertThat(listNthElementHasText(page.results, 0, "Then you want to use Selenium WebDriver"));
         assertThat(textIn(page.resultsStats, "26,200,000"));
     }
 
@@ -63,7 +64,7 @@ public class GoogleTest extends BaseTest {
     public void testStraightforwardStyleDemoSearchResult(){
         open("http://google.com/ncr");
         $(By.name("q")).sendKeys("Selenium", Keys.ENTER);
-        assertThat(listNthElementHasText(By.cssSelector(".srg .g"), 9, "Detailed instructions for Windows users"));
+        assertThat(listNthElementHasText(By.cssSelector(".srg .g"), 0, "Then you want to use Selenium WebDriver"));
     }
 
     /*
@@ -94,5 +95,10 @@ public class GoogleTest extends BaseTest {
 
         With PageObjects - everything should be consistent generally.
      */
+
+    @After
+    public void postRefresh(){
+        refresh();
+    }
 
 }

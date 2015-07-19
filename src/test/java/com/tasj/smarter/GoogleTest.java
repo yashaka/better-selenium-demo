@@ -1,5 +1,6 @@
 package com.tasj.smarter;
 
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -59,6 +60,7 @@ public class GoogleTest extends BaseTest {
     @Test
     public void testStraightforwardStyleDemoSearchResult(){
         open("http://google.com/ncr");
+        assertThat(valueOf($(By.name("q")), ""));
         $(By.name("q")).sendKeys("Selenium", Keys.ENTER);
         assertThat(listNthElementHasText($$(".srg .g"), 0, "Then you want to use Selenium WebDriver"));
     }
@@ -73,5 +75,10 @@ public class GoogleTest extends BaseTest {
     }
 
     */
+
+    @After
+    public void postRefresh(){
+        refresh();
+    }
 
 }

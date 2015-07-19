@@ -102,7 +102,7 @@ For simplicity of this Demo, the structure of the framework is very simple and b
 - without breakdown into common "core, pages, tests, etc" packages
 - with some core classes used only once - implemented as Inner Classes.
 
-## Structure
+## Structure and Approaches
 
 The only structuring is the breakdown into 3 versions of framework. This versions live in correspondent packages and reflect the following approach:
 
@@ -137,3 +137,4 @@ _"Adds more power and efficiency via some java magic with more knowledge and tim
 
 - add more details and docs
 - add comments to the code
+- refactor $get method to be of OOP style
