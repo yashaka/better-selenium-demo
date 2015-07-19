@@ -64,3 +64,4 @@ _"Adds more power and efficiency via some java magic with more knowledge and tim
 ## Todos
 
 - add more details and docs
+- add comments to the code
