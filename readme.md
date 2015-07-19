@@ -1,6 +1,78 @@
-# This is a short demo on building Selenium Based Test Framework
+# This is a notes project from the 3 hours demo on building Selenium Based Test Frameworks (Selenium Wrappers)
 
 ## Goal
+
+### In short
+
+Develop fast (around 3 hours, or less) a Selenium wrapper in java, in order to
+
+**I**
+
+be able to write straigtforward code:
+
+```java
+
+        open("http://google.com/ncr");
+        $(By.name("q")).sendKeys("Selenium", Keys.ENTER);
+        $("#rhs_block a").click();
+        assertThat(valueOf($(By.name("q")), "selenium element"));
+```
+
+almost the same way as in [selenide](selenide.org):
+
+```java
+
+        open("http://google.com/ncr");
+        $(By.name("q")).sendKeys("Selenium", Keys.ENTER);
+        $("#rhs_block a").click();
+        $(By.name("q")).shouldHave(value("selenium element"));
+```
+
+instead of raw selenium's
+
+```java
+
+    WebDriver driver = new FirefoxDriver();
+    ...
+        driver.get(http://google.com/ncr");
+        driver.findElement(By.name("q")).sendKeys("Selenium", Keys.ENTER);
+        (new WebDriverWait(driver, 4)).until(visibilityOfElementLocated(By.cssSelector("#rhs_block a")).click();
+        (new WebDriverWait(driver, 4)).until(textToBePresentInElementValue(By.name("q"), "selenium element"));
+    ...
+    @AfterClass
+    public static void teardown(){
+        driver.quit();
+    }
+    
+```
+
+**II**
+
+use simpler PageObjects
+
+```java
+
+public class GooglePage extends BasePage {
+
+    WebElement resultsStats = $("#resultStats");
+    
+    List<WebElement> results = $$(".srg .g");
+```
+
+instead of raw Selenium's PageObjects with PageFactories
+
+```java
+
+public class GooglePage extends BasePage {
+
+    @FindBy(id = "resultStats")
+    WebElement resultsStats;
+
+    @FindBy(css = ".srg .g")
+    List<WebElement> results;
+```
+
+### More
 
 The goal is to provide the same as Selenide does:
 
