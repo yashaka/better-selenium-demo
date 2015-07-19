@@ -23,7 +23,7 @@ almost the same way as in [selenide](selenide.org):
 ```java
 
         open("http://google.com/ncr");
-        $(By.name("q")).sendKeys("Selenium", Keys.ENTER);
+        $(By.name("q")).setValue("Selenium").pressEnter();
         $("#rhs_block a").click();
         $(By.name("q")).shouldHave(value("selenium element"));
 ```
