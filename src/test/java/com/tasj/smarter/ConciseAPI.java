@@ -22,7 +22,7 @@ public abstract class ConciseAPI {
 
     public abstract WebDriver getWebDriver();
 
-    class WebElementBait implements WebElement{
+    class ProxiedWebElement implements WebElement{
 
         public void click() {
 
@@ -111,7 +111,7 @@ public abstract class ConciseAPI {
     }
 
     protected WebElement $(By locator){
-        return (WebElement) newElementFinderProxyInstance(new WebElementBait(), locator);
+        return (WebElement) newElementFinderProxyInstance(new ProxiedWebElement(), locator);
     }
 
     protected WebElement $(String cssSelector){

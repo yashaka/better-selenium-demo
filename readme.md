@@ -97,12 +97,12 @@ The main benefit is of course - the Ajax support. Tha latter is implemented via
 - smart implicit waiting for visibility of the element (instead of waiting for only "existance in DOM" in raw selenium)
 - handy explicit waits built in assertions
 
+## Structure and Approaches
+
 For simplicity of this Demo, the structure of the framework is very simple and basic, 
 
 - without breakdown into common "core, pages, tests, etc" packages
 - with some core classes used only once - implemented as Inner Classes.
-
-## Structure and Approaches
 
 The only structuring is the breakdown into 3 versions of framework. This versions live in correspondent packages and reflect the following approach:
 
